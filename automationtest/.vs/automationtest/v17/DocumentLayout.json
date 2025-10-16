@@ -1,0 +1,56 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\automationtest\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B27CC777-E7F4-4192-A4ED-78EE1248DECF}|automationtest\\automationtest.csproj|c:\\users\\dongjun.lee\\documents\\visual studio 2022\\projects\\automationtest\\automationtest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B27CC777-E7F4-4192-A4ED-78EE1248DECF}|automationtest\\automationtest.csproj|solutionrelative:automationtest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B27CC777-E7F4-4192-A4ED-78EE1248DECF}|automationtest\\automationtest.csproj|C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\automationtest\\automationtest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B27CC777-E7F4-4192-A4ED-78EE1248DECF}|automationtest\\automationtest.csproj|solutionrelative:automationtest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\automationtest\\automationtest\\Form1.cs",
+              "RelativeDocumentMoniker": "automationtest\\Form1.cs",
+              "ToolTip": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\automationtest\\automationtest\\Form1.cs",
+              "RelativeToolTip": "automationtest\\Form1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwBIAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T05:03:26.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\automationtest\\automationtest\\Form1.cs",
+              "RelativeDocumentMoniker": "automationtest\\Form1.cs",
+              "ToolTip": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\automationtest\\automationtest\\Form1.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "automationtest\\Form1.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T05:02:52.06Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

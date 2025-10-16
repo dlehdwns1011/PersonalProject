@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2017\\Projects\\VBATester\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B84D457B-8B53-4D1B-A0D7-5C0ED80B6B4B}|VBATester\\VBATester.csproj|c:\\users\\dongjun.lee\\documents\\visual studio 2017\\projects\\vbatester\\vbatester\\vbatester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B84D457B-8B53-4D1B-A0D7-5C0ED80B6B4B}|VBATester\\VBATester.csproj|solutionrelative:vbatester\\vbatester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B84D457B-8B53-4D1B-A0D7-5C0ED80B6B4B}|VBATester\\VBATester.csproj|C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2017\\Projects\\VBATester\\vbatester\\vbatester.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B84D457B-8B53-4D1B-A0D7-5C0ED80B6B4B}|VBATester\\VBATester.csproj|solutionrelative:vbatester\\vbatester.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B84D457B-8B53-4D1B-A0D7-5C0ED80B6B4B}|VBATester\\VBATester.csproj|C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2017\\Projects\\VBATester\\vbatester\\vbatester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B84D457B-8B53-4D1B-A0D7-5C0ED80B6B4B}|VBATester\\VBATester.csproj|solutionrelative:vbatester\\vbatester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B84D457B-8B53-4D1B-A0D7-5C0ED80B6B4B}|VBATester\\VBATester.csproj|C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2017\\Projects\\VBATester\\vbatester\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B84D457B-8B53-4D1B-A0D7-5C0ED80B6B4B}|VBATester\\VBATester.csproj|solutionrelative:vbatester\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VBATester.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2017\\Projects\\VBATester\\VBATester\\VBATester.Designer.cs",
+              "RelativeDocumentMoniker": "VBATester\\VBATester.Designer.cs",
+              "ToolTip": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2017\\Projects\\VBATester\\VBATester\\VBATester.Designer.cs",
+              "RelativeToolTip": "VBATester\\VBATester.Designer.cs",
+              "ViewState": "AQIAAFcAAAAAAAAAAADgv3gAAABaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T06:44:26.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VBATester.cs",
+              "DocumentMoniker": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2017\\Projects\\VBATester\\VBATester\\VBATester.cs",
+              "RelativeDocumentMoniker": "VBATester\\VBATester.cs",
+              "ToolTip": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2017\\Projects\\VBATester\\VBATester\\VBATester.cs",
+              "RelativeToolTip": "VBATester\\VBATester.cs",
+              "ViewState": "AQIAALIAAAAAAAAAAAAEwMMAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T04:58:07.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VBATester.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2017\\Projects\\VBATester\\VBATester\\VBATester.cs",
+              "RelativeDocumentMoniker": "VBATester\\VBATester.cs",
+              "ToolTip": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2017\\Projects\\VBATester\\VBATester\\VBATester.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "VBATester\\VBATester.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T04:58:03.758Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2017\\Projects\\VBATester\\VBATester\\Program.cs",
+              "RelativeDocumentMoniker": "VBATester\\Program.cs",
+              "ToolTip": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2017\\Projects\\VBATester\\VBATester\\Program.cs",
+              "RelativeToolTip": "VBATester\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T04:57:59.297Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

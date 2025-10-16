@@ -1,0 +1,13 @@
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\automationtest\automationtest\bin\Debug\automationtest.exe.config
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\automationtest\automationtest\bin\Debug\automationtest.exe
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\automationtest\automationtest\bin\Debug\automationtest.pdb
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\automationtest\automationtest\obj\Debug\automationtest.csproj.AssemblyReference.cache
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\automationtest\automationtest\obj\Debug\automationtest.Properties.Resources.resources
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\automationtest\automationtest\obj\Debug\automationtest.csproj.GenerateResource.cache
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\automationtest\automationtest\obj\Debug\automationtest.csproj.CoreCompileInputs.cache
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\automationtest\automationtest\obj\Debug\automationtest.exe
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\automationtest\automationtest\obj\Debug\automationtest.pdb
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\automationtest\automationtest\obj\Debug\Interop.HShowObject.dll
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\automationtest\automationtest\obj\Debug\automationtest.csproj.ResolveComReference.cache
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\automationtest\automationtest\bin\Debug\OOXMLDataLoader.dll
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\automationtest\automationtest\obj\Debug\automati.A72AFF84.Up2Date

@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Console\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F9251A34-A894-46D8-B544-CCF4B2653E0E}|C#Console4.8\\C#Console4.8.csproj|c:\\users\\dongjun.lee\\documents\\visual studio 2022\\projects\\c#console\\c#console4.8\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9251A34-A894-46D8-B544-CCF4B2653E0E}|C#Console4.8\\C#Console4.8.csproj|solutionrelative:c#console4.8\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Console\\C#Console4.8\\Program.cs",
+              "RelativeDocumentMoniker": "C#Console4.8\\Program.cs",
+              "ToolTip": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Console\\C#Console4.8\\Program.cs",
+              "RelativeToolTip": "C#Console4.8\\Program.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwBoAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T06:19:58.784Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{917ED73D-2F76-4513-9986-0C6AFD9723D5}|C#Test\\C#Test.csproj|c:\\users\\dongjun.lee\\documents\\visual studio 2022\\projects\\c#test\\c#test\\ppttextextractornpoi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{917ED73D-2F76-4513-9986-0C6AFD9723D5}|C#Test\\C#Test.csproj|solutionrelative:c#test\\ppttextextractornpoi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{917ED73D-2F76-4513-9986-0C6AFD9723D5}|C#Test\\C#Test.csproj|C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\c#test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{917ED73D-2F76-4513-9986-0C6AFD9723D5}|C#Test\\C#Test.csproj|solutionrelative:c#test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{917ED73D-2F76-4513-9986-0C6AFD9723D5}|C#Test\\C#Test.csproj|C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\c#test\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{917ED73D-2F76-4513-9986-0C6AFD9723D5}|C#Test\\C#Test.csproj|solutionrelative:c#test\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{917ED73D-2F76-4513-9986-0C6AFD9723D5}|C#Test\\C#Test.csproj|C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\c#test\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{917ED73D-2F76-4513-9986-0C6AFD9723D5}|C#Test\\C#Test.csproj|solutionrelative:c#test\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{917ED73D-2F76-4513-9986-0C6AFD9723D5}|C#Test\\C#Test.csproj|C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\c#test\\pointnode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{917ED73D-2F76-4513-9986-0C6AFD9723D5}|C#Test\\C#Test.csproj|solutionrelative:c#test\\pointnode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PptTextExtractorNPOI.cs",
+              "DocumentMoniker": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\C#Test\\PptTextExtractorNPOI.cs",
+              "RelativeDocumentMoniker": "C#Test\\PptTextExtractorNPOI.cs",
+              "ToolTip": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\C#Test\\PptTextExtractorNPOI.cs",
+              "RelativeToolTip": "C#Test\\PptTextExtractorNPOI.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T06:39:30.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\C#Test\\Form1.cs",
+              "RelativeDocumentMoniker": "C#Test\\Form1.cs",
+              "ToolTip": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\C#Test\\Form1.cs",
+              "RelativeToolTip": "C#Test\\Form1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFQAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T04:56:57.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\C#Test\\Program.cs",
+              "RelativeDocumentMoniker": "C#Test\\Program.cs",
+              "ToolTip": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\C#Test\\Program.cs",
+              "RelativeToolTip": "C#Test\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T02:28:16.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\C#Test\\Form1.cs",
+              "RelativeDocumentMoniker": "C#Test\\Form1.cs",
+              "ToolTip": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\C#Test\\Form1.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "C#Test\\Form1.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T04:56:53.609Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PointNode.cs",
+              "DocumentMoniker": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\C#Test\\PointNode.cs",
+              "RelativeDocumentMoniker": "C#Test\\PointNode.cs",
+              "ToolTip": "C:\\Users\\dongjun.lee\\Documents\\Visual Studio 2022\\Projects\\C#Test\\C#Test\\PointNode.cs",
+              "RelativeToolTip": "C#Test\\PointNode.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T04:56:36.065Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

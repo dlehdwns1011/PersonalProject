@@ -1,0 +1,300 @@
+{
+  "slides" : [
+    {
+      "shapes" : [
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "shape1"
+              }
+            ],
+            "shapeHyperlink" : {
+              "address" : "http://naver.com/",
+              "label" : "http://naver.com"
+            }
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "Shape2\r"
+              },
+              {
+                "paragraphIndex" : 1,
+                "text" : "\r"
+              },
+              {
+                "paragraphIndex" : 2,
+                "text" : "THy",
+                "hyperlink" : {
+                  "address" : "http://hancom.com/",
+                  "label" : "http://hancom.com"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "Shape3\r"
+              },
+              {
+                "paragraphIndex" : 1,
+                "text" : "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+              }
+            ]
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "레이아웃"
+              }
+            ]
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "마~~스터"
+              }
+            ]
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "1"
+              }
+            ]
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "foot"
+              }
+            ]
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "2025-09-022025-09-02"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "shapes" : [
+        {
+          "Picture" : {
+            "file" : "image2.jpeg"
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "레이아웃"
+              }
+            ]
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "마~~스터"
+              }
+            ]
+          }
+        },
+        {
+          "Picture" : {
+            "file" : "image1.png"
+          }
+        }
+      ]
+    },
+    {
+      "shapes" : [
+        {
+          "Table" : {
+            "contents" : [
+              "(0,0)표1.1",
+              "(0,1)표1.2",
+              "(1,0)표2.1",
+              "(1,1)표2.2"
+            ]
+          }
+        },
+        {
+          "Table" : {
+            "contents" : [
+              "(0,0-1)표1.1",
+              "(1-2,0)표2.1",
+              "(1,1)표2.2",
+              "(2,1)표3.2"
+            ]
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "레이아웃"
+              }
+            ]
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "마~~스터"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "shapes" : [
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "워드아트~"
+              }
+            ]
+          }
+        },
+        {
+          "Picture" : {
+            "file" : "image3.png"
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "레이아웃"
+              }
+            ]
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "마~~스터"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "shapes" : [
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "1"
+              }
+            ]
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "글\r",
+                "bullet" : "•"
+              },
+              {
+                "paragraphIndex" : 1,
+                "text" : "머\r",
+                "bullet" : "v"
+              },
+              {
+                "paragraphIndex" : 2,
+                "text" : "리\r",
+                "bullet" : "ü"
+              },
+              {
+                "paragraphIndex" : 3,
+                "text" : "기\r",
+                "bullet" : "•"
+              },
+              {
+                "paragraphIndex" : 4,
+                "text" : "호",
+                "bullet" : "•"
+              }
+            ]
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "레이아웃"
+              }
+            ]
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "마~~스터"
+              }
+            ]
+          }
+        },
+        {
+          "TextBox" : {
+            "contents" : [
+              {
+                "paragraphIndex" : 0,
+                "text" : "2"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+C:\Users\dongjun.lee\Documents\Visual Studio 2017\Projects\VBATester\VBATester\bin\Release\VBATester.exe.config
+C:\Users\dongjun.lee\Documents\Visual Studio 2017\Projects\VBATester\VBATester\bin\Release\VBATester.exe
+C:\Users\dongjun.lee\Documents\Visual Studio 2017\Projects\VBATester\VBATester\bin\Release\VBATester.pdb
+C:\Users\dongjun.lee\Documents\Visual Studio 2017\Projects\VBATester\VBATester\obj\Release\VBATester.Properties.Resources.resources
+C:\Users\dongjun.lee\Documents\Visual Studio 2017\Projects\VBATester\VBATester\obj\Release\VBATester.VBATester.resources
+C:\Users\dongjun.lee\Documents\Visual Studio 2017\Projects\VBATester\VBATester\obj\Release\VBATester.csproj.GenerateResource.cache
+C:\Users\dongjun.lee\Documents\Visual Studio 2017\Projects\VBATester\VBATester\obj\Release\VBATester.csproj.CoreCompileInputs.cache
+C:\Users\dongjun.lee\Documents\Visual Studio 2017\Projects\VBATester\VBATester\obj\Release\VBATester.exe
+C:\Users\dongjun.lee\Documents\Visual Studio 2017\Projects\VBATester\VBATester\obj\Release\VBATester.pdb
+C:\Users\dongjun.lee\Documents\Visual Studio 2017\Projects\VBATester\VBATester\obj\Release\VBATester.csprojAssemblyReference.cache
+C:\Users\dongjun.lee\Documents\Visual Studio 2017\Projects\VBATester\VBATester\obj\Release\Interop.HShowObject.dll
+C:\Users\dongjun.lee\Documents\Visual Studio 2017\Projects\VBATester\VBATester\obj\Release\VBATester.csproj.ResolveComReference.cache

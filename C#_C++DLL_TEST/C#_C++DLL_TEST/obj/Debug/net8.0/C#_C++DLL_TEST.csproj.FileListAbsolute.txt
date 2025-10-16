@@ -1,0 +1,14 @@
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\C#_C++DLL_TEST\C#_C++DLL_TEST\bin\Debug\net8.0\C#_C++DLL_TEST.exe
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\C#_C++DLL_TEST\C#_C++DLL_TEST\bin\Debug\net8.0\C#_C++DLL_TEST.deps.json
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\C#_C++DLL_TEST\C#_C++DLL_TEST\bin\Debug\net8.0\C#_C++DLL_TEST.runtimeconfig.json
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\C#_C++DLL_TEST\C#_C++DLL_TEST\bin\Debug\net8.0\C#_C++DLL_TEST.dll
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\C#_C++DLL_TEST\C#_C++DLL_TEST\bin\Debug\net8.0\C#_C++DLL_TEST.pdb
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\C#_C++DLL_TEST\C#_C++DLL_TEST\obj\Debug\net8.0\C#_C++DLL_TEST.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\C#_C++DLL_TEST\C#_C++DLL_TEST\obj\Debug\net8.0\C#_C++DLL_TEST.AssemblyInfoInputs.cache
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\C#_C++DLL_TEST\C#_C++DLL_TEST\obj\Debug\net8.0\C#_C++DLL_TEST.AssemblyInfo.cs
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\C#_C++DLL_TEST\C#_C++DLL_TEST\obj\Debug\net8.0\C#_C++DLL_TEST.csproj.CoreCompileInputs.cache
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\C#_C++DLL_TEST\C#_C++DLL_TEST\obj\Debug\net8.0\C#_C++DLL_TEST.dll
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\C#_C++DLL_TEST\C#_C++DLL_TEST\obj\Debug\net8.0\refint\C#_C++DLL_TEST.dll
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\C#_C++DLL_TEST\C#_C++DLL_TEST\obj\Debug\net8.0\C#_C++DLL_TEST.pdb
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\C#_C++DLL_TEST\C#_C++DLL_TEST\obj\Debug\net8.0\C#_C++DLL_TEST.genruntimeconfig.cache
+C:\Users\dongjun.lee\Documents\Visual Studio 2022\Projects\C#_C++DLL_TEST\C#_C++DLL_TEST\obj\Debug\net8.0\ref\C#_C++DLL_TEST.dll

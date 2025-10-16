@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C#Console4.8", "C#Console4.8\C#Console4.8.csproj", "{F9251A34-A894-46D8-B544-CCF4B2653E0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9251A34-A894-46D8-B544-CCF4B2653E0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9251A34-A894-46D8-B544-CCF4B2653E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9251A34-A894-46D8-B544-CCF4B2653E0E}.Debug|x64.ActiveCfg = Debug|x64
+		{F9251A34-A894-46D8-B544-CCF4B2653E0E}.Debug|x64.Build.0 = Debug|x64
+		{F9251A34-A894-46D8-B544-CCF4B2653E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9251A34-A894-46D8-B544-CCF4B2653E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9251A34-A894-46D8-B544-CCF4B2653E0E}.Release|x64.ActiveCfg = Release|x64
+		{F9251A34-A894-46D8-B544-CCF4B2653E0E}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26471890-7FD6-4CBF-BA24-613CBE0E6AC7}
+	EndGlobalSection
+EndGlobal

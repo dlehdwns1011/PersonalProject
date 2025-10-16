@@ -1,0 +1,2946 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WaterTrans.GlyphLoader</name>
+    </assembly>
+    <members>
+        <member name="T:WaterTrans.GlyphLoader.Geometry.BezierSegment">
+            <summary>
+            Represents a cubic Bezier curve drawn between two points.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.BezierSegment.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.BezierSegment"/> class.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.BezierSegment.#ctor(WaterTrans.GlyphLoader.Geometry.Point,WaterTrans.GlyphLoader.Geometry.Point,WaterTrans.GlyphLoader.Geometry.Point,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.BezierSegment"/> class.
+            </summary>
+            <param name="point1">The first control point, which determines the beginning portion of the curve.</param>
+            <param name="point2">The second control point, which determines the ending portion of the curve.</param>
+            <param name="point3">The point to which the curve is drawn.</param>
+            <param name="isStroked">true to stroke the curve when a Pen is used to render the segment; otherwise, false.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.BezierSegment.Point1">
+            <summary>
+            Gets or sets the first control point of the curve.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.BezierSegment.Point2">
+            <summary>
+            Gets or sets the second control point of the curve.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.BezierSegment.Point3">
+            <summary>
+            Gets or sets the end point of the curve.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.BezierSegment.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.BezierSegment.ToString(System.Double,System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.BezierSegment.ToString(System.Double,System.Double,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Geometry.FillRule">
+            <summary>
+            Specifies how the intersecting areas of <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/> objects contained in a <see cref="T:WaterTrans.GlyphLoader.Geometry.PathGeometry"/> are combined to form the area of the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathGeometry"/>.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Geometry.FillRule.EvenOdd">
+            <summary>
+            Rule that determines whether a point is in the fill region by drawing a ray from that point to infinity in any direction and counting the number of path segments within the given shape that the ray crosses. If this number is odd, the point is inside; if even, the point is outside.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Geometry.FillRule.Nonzero">
+            <summary>
+            Rule that determines whether a point is in the fill region of the path by drawing a ray from that point to infinity in any direction and then examining the places where a segment of the shape crosses the ray. Starting with a count of zero, add one each time a segment crosses the ray from left to right and subtract one each time a path segment crosses the ray from right to left. After counting the crossings, if the result is zero then the point is outside the path. Otherwise, it is inside.
+            </summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Geometry.LineSegment">
+            <summary>
+            Creates a line between two points in a <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/>.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.LineSegment.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.LineSegment"/> class.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.LineSegment.#ctor(WaterTrans.GlyphLoader.Geometry.Point,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.LineSegment"/> class.
+            </summary>
+            <param name="point">The end point of this <see cref="T:WaterTrans.GlyphLoader.Geometry.LineSegment"/>.</param>
+            <param name="isStroked">true to stroke this LineSegment; otherwise, false.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.LineSegment.Point">
+            <summary>
+            Gets or sets the end point of the line segment.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.LineSegment.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.LineSegment.ToString(System.Double,System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.LineSegment.ToString(System.Double,System.Double,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Geometry.PathFigure">
+            <summary>
+            Represents a complex shape that may be composed of arcs, curves, ellipses, lines, and rectangles.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathFigure.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/> class.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathFigure.#ctor(WaterTrans.GlyphLoader.Geometry.Point,System.Collections.Generic.IEnumerable{WaterTrans.GlyphLoader.Geometry.PathSegment},System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/> class.
+            </summary>
+            <param name="start">The StartPoint for the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/>.</param>
+            <param name="segments">The Segments for the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/>.</param>
+            <param name="closed">The IsClosed for the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.PathFigure.IsClosed">
+            <summary>
+            Gets or sets a value that specifies whether this figures first and last segments are connected.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.PathFigure.IsFilled">
+            <summary>
+            Gets or sets whether the contained area of this <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/> is to be used for hit-testing, rendering, and clipping.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.PathFigure.Segments">
+            <summary>
+            Gets or sets the collection of segments that define the shape of this <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/> object.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.PathFigure.StartPoint">
+            <summary>
+            Gets or sets the <see cref="T:WaterTrans.GlyphLoader.Geometry.Point"/> where the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/> begins.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathFigure.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathFigure.ToString(System.Double,System.Double)">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <param name="x">X coordinates offset.</param>
+            <param name="y">Y coordinates offset.</param>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathFigure.ToString(System.Double,System.Double,System.Int32)">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <param name="x">X coordinates offset.</param>
+            <param name="y">Y coordinates offset.</param>
+            <param name="roundDigits">Round by the given number of digits.</param>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Geometry.PathFigureCollection">
+            <summary>
+            Represents a collection of <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/> objects that collectively make up the geometry of a <see cref="T:WaterTrans.GlyphLoader.Geometry.PathGeometry"/>.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathFigureCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigureCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathFigureCollection.#ctor(System.Collections.Generic.IEnumerable{WaterTrans.GlyphLoader.Geometry.PathFigure})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigureCollection"/> class.
+            </summary>
+            <param name="collection">The collection of <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/> objects which collectively make up the geometry of the Path.</param>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathFigureCollection.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathFigureCollection.ToString(System.Double,System.Double)">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <param name="x">X coordinates offset.</param>
+            <param name="y">Y coordinates offset.</param>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathFigureCollection.ToString(System.Double,System.Double,System.Int32)">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <param name="x">X coordinates offset.</param>
+            <param name="y">Y coordinates offset.</param>
+            <param name="roundDigits">Round by the given number of digits.</param>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Geometry.PathGeometry">
+            <summary>
+            Represents a complex shape that may be composed of arcs, curves, ellipses, lines, and rectangles.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathGeometry.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathGeometry"/> class.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathGeometry.#ctor(System.Collections.Generic.IEnumerable{WaterTrans.GlyphLoader.Geometry.PathFigure})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathGeometry"/> class.
+            </summary>
+            <param name="figures">The Figures of the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathGeometry"/> which describes the contents of the Path.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.PathGeometry.Figures">
+            <summary>
+            Gets or sets the collection of <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/> objects that describe the path's contents.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.PathGeometry.FillRule">
+            <summary>
+            Gets or sets a value that determines how the intersecting areas contained in this <see cref="T:WaterTrans.GlyphLoader.Geometry.PathGeometry"/> are combined.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathGeometry.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathGeometry.ToString(System.Double,System.Double)">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <param name="x">X coordinates offset.</param>
+            <param name="y">Y coordinates offset.</param>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathGeometry.ToString(System.Double,System.Double,System.Int32)">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <param name="x">X coordinates offset.</param>
+            <param name="y">Y coordinates offset.</param>
+            <param name="roundDigits">Round by the given number of digits.</param>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Geometry.PathSegment">
+            <summary>
+            Represents a segment of a <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/> object.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.PathSegment.IsStroked">
+            <summary>
+            Gets or sets a value that indicates whether the segment is stroked.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathSegment.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathSegment.ToString(System.Double,System.Double)">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <param name="x">X coordinates offset.</param>
+            <param name="y">Y coordinates offset.</param>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathSegment.ToString(System.Double,System.Double,System.Int32)">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <param name="x">X coordinates offset.</param>
+            <param name="y">Y coordinates offset.</param>
+            <param name="roundDigits">Round by the given number of digits.</param>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Geometry.PathSegmentCollection">
+            <summary>
+            Represents a collection of <see cref="T:WaterTrans.GlyphLoader.Geometry.PathSegment"/> objects that can be individually accessed by index.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathSegmentCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathSegmentCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathSegmentCollection.#ctor(System.Collections.Generic.IEnumerable{WaterTrans.GlyphLoader.Geometry.PathSegment})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathSegmentCollection"/> class.
+            </summary>
+            <param name="collection">The collection of <see cref="T:WaterTrans.GlyphLoader.Geometry.PathSegment"/> objects that make up the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathSegmentCollection"/>.</param>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathSegmentCollection.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathSegmentCollection.ToString(System.Double,System.Double)">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <param name="x">X coordinates offset.</param>
+            <param name="y">Y coordinates offset.</param>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.PathSegmentCollection.ToString(System.Double,System.Double,System.Int32)">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <param name="x">X coordinates offset.</param>
+            <param name="y">Y coordinates offset.</param>
+            <param name="roundDigits">Round by the given number of digits.</param>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Geometry.Point">
+            <summary>
+            Represents an x- and y-coordinate pair in two-dimensional space.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.Point.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.Point"/> struct.
+            </summary>
+            <param name="x">The x-coordinate of the new <see cref="T:WaterTrans.GlyphLoader.Geometry.Point"/> structure.</param>
+            <param name="y">The y-coordinate of the new <see cref="T:WaterTrans.GlyphLoader.Geometry.Point"/> structure.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.Point.X">
+            <summary>
+            Gets or sets the X-coordinate value of this <see cref="T:WaterTrans.GlyphLoader.Geometry.Point"/> structure.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.Point.Y">
+            <summary>
+            Gets or sets the Y-coordinate value of this <see cref="T:WaterTrans.GlyphLoader.Geometry.Point"/> structure.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.Point.Scale(System.Double)">
+            <summary>
+            Scales this Point by the specified amount.
+            </summary>
+            <param name="scale">The amount to scale.</param>
+            <returns>Returns a translated value.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.Point.TransformTwoByTwo(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Transforms this Point by two by two transformation.
+            </summary>
+            <param name="xScale">The x-scale.</param>
+            <param name="yScale">The y-scale.</param>
+            <param name="scale01">The scale01.</param>
+            <param name="scale10">The scale10.</param>
+            <returns>Returns a transformed value.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.Point.Offset(System.Double,System.Double)">
+            <summary>
+            Translates this Point by the specified amount.
+            </summary>
+            <param name="x">The amount to offset the x-coordinate.</param>
+            <param name="y">The amount to offset the y-coordinate.</param>
+            <returns>Returns a translated value.</returns>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Geometry.QuadraticBezierSegment">
+            <summary>
+            Creates a quadratic Bezier curve between two points in a <see cref="T:WaterTrans.GlyphLoader.Geometry.PathFigure"/>.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.QuadraticBezierSegment.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.QuadraticBezierSegment"/> class.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.QuadraticBezierSegment.#ctor(WaterTrans.GlyphLoader.Geometry.Point,WaterTrans.GlyphLoader.Geometry.Point,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Geometry.QuadraticBezierSegment"/> class.
+            </summary>
+            <param name="point1">The control point of this <see cref="T:WaterTrans.GlyphLoader.Geometry.QuadraticBezierSegment"/>.</param>
+            <param name="point2">The end point of this <see cref="T:WaterTrans.GlyphLoader.Geometry.QuadraticBezierSegment"/>.</param>
+            <param name="isStroked">true if this <see cref="T:WaterTrans.GlyphLoader.Geometry.QuadraticBezierSegment"/> is to be stroked; otherwise, false.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.QuadraticBezierSegment.Point1">
+            <summary>
+            Gets or sets the control <see cref="T:WaterTrans.GlyphLoader.Geometry.Point"/> of the curve.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Geometry.QuadraticBezierSegment.Point2">
+            <summary>
+            Gets or sets the end <see cref="T:WaterTrans.GlyphLoader.Geometry.Point"/> of this <see cref="T:WaterTrans.GlyphLoader.Geometry.QuadraticBezierSegment"/>.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.QuadraticBezierSegment.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.QuadraticBezierSegment.ToString(System.Double,System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Geometry.QuadraticBezierSegment.ToString(System.Double,System.Double,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.AAT.BinarySearchHeader">
+            <summary>
+            The binary search tables contain data that assist in conducting binary searches for information in the table that it resides in.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.AAT.BinarySearchHeader.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.AAT.BinarySearchHeader"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.BinarySearchHeader.UnitSize">
+            <summary>Gets UnitSize.</summary>
+            <remarks>Size of a lookup unit for this search in bytes.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.BinarySearchHeader.NUnits">
+            <summary>Gets NUnits.</summary>
+            <remarks>Number of units of the preceding size to be searched.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.BinarySearchHeader.SearchRange">
+            <summary>Gets SearchRange.</summary>
+            <remarks>The value of unitSize times the largest power of 2 that is less than or equal to the value of nUnits.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.BinarySearchHeader.EntrySelector">
+            <summary>Gets EntrySelector.</summary>
+            <remarks>The log base 2 of the largest power of 2 less than or equal to the value of nUnits.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.BinarySearchHeader.RangeShift">
+            <summary>Gets RangeShift.</summary>
+            <remarks>The value of unitSize times the difference of the value of nUnits minus the largest power of 2 less than or equal to the value of nUnits.</remarks>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.AAT.Chain">
+            <summary>
+            The metamorphosis chain.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.AAT.Chain.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.AAT.Chain"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.Chain.FeatureTables">
+            <summary>Gets FeatureTables.</summary>
+            <remarks>The list of FeatureTable.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.Chain.MetamorphosisTables">
+            <summary>Gets MetamorphosisTables.</summary>
+            <remarks>The list of metamorphosis table.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.Chain.DefaultFlags">
+            <summary>Gets DefaultFlags.</summary>
+            <remarks>The default sub-feature flags for this chain.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.Chain.ChainLength">
+            <summary>Gets ChainLength.</summary>
+            <remarks>The length of the chain in bytes, including this header.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.Chain.NFeatureEntries">
+            <summary>Gets NFeatureEntries.</summary>
+            <remarks>The number of entries in the chain's feature subtable.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.Chain.NSubtables">
+            <summary>Gets NSubtables.</summary>
+            <remarks>The number of subtables in the chain.</remarks>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.AAT.FeatureTable">
+            <summary>
+            The chain's feature subtable.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.AAT.FeatureTable.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.AAT.FeatureTable"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.FeatureTable.FeatureType">
+            <summary>Gets FeatureType.</summary>
+            <remarks>The type of feature.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.FeatureTable.FeatureSetting">
+            <summary>Gets FeatureSetting.</summary>
+            <remarks>The feature's setting.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.FeatureTable.EnableFlags">
+            <summary>Gets EnableFlags.</summary>
+            <remarks>Flags for the settings that this feature and setting enables.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.FeatureTable.DisableFlags">
+            <summary>Gets DisableFlags.</summary>
+            <remarks>Complement of flags for the settings that this feature and setting disable.</remarks>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.AAT.GlyphComponent">
+            <summary>
+            The Composite glyphs in the font in the TrueType outline format.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.AAT.GlyphComponent.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader,System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.AAT.GlyphComponent"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+            <param name="flags">The component flag.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphComponent.Flags">
+            <summary>Gets the component flag.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphComponent.GlyphIndex">
+            <summary>Gets the glyph index of component.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphComponent.XOffsetOrPointNumber">
+            <summary>Gets the x-offset for component or point number; type depends on bits 0 and 1 in component flags.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphComponent.YOffsetOrPointNumber">
+            <summary>Gets the y-offset for component or point number; type depends on bits 0 and 1 in component flags.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphComponent.XScale">
+            <summary>Gets the x-scale for component.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphComponent.YScale">
+            <summary>Gets the y-scale for component.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphComponent.Scale01">
+            <summary>Gets the 2x2 transformation.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphComponent.Scale10">
+            <summary>Gets the 2x2 transformation.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.AAT.GlyphData">
+            <summary>
+            The glyphs in the font in the TrueType outline format.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.#ctor(System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.AAT.GlyphData"/> class.
+            </summary>
+            <param name="glyphIndex">The index of the glyph.</param>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.#ctor(WaterTrans.GlyphLoader.Internal.AAT.GlyphData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.AAT.GlyphData"/> class.
+            </summary>
+            <param name="glyphData">The <see cref="T:WaterTrans.GlyphLoader.Internal.AAT.GlyphData"/>.</param>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader,System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.AAT.GlyphData"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+            <param name="glyphIndex">The index of the glyph.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.GlyphIndex">
+            <summary>Gets a index of the glyph.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.NumberOfContours">
+            <summary>Gets a number of contours. If the number of contours is greater than or equal to zero, this is a simple glyph. If negative, this is a composite glyph — the value -1 should be used for composite glyphs.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.XMin">
+            <summary>Gets a minimum x for coordinate data.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.YMin">
+            <summary>Gets a minimum y for coordinate data.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.XMax">
+            <summary>Gets a maximum x for coordinate data.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.YMax">
+            <summary>Gets a maximum y for coordinate data.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.EndPtsOfContours">
+            <summary>Gets an array of point indices for the last point of each contour, in increasing numeric order.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.InstructionLength">
+            <summary>Gets the total number of bytes for instructions. If instructionLength is zero, no instructions are present for this glyph, and this field is followed directly by the flags field.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.Instructions">
+            <summary>Gets an array of instruction byte code for the glyph.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.NumberOfCoordinates">
+            <summary>Gets a number of coordinates.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.Flags">
+            <summary>Gets an array of flag elements.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.XCoordinates">
+            <summary>Gets an array of x coordinate.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.YCoordinates">
+            <summary>Gets an array of y coordinate.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.Components">
+            <summary>Gets the composite glyph components.</summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.ConvertToPathGeometry(System.Double)">
+            <summary>
+            Converts to glyph data to <see cref="T:WaterTrans.GlyphLoader.Geometry.PathGeometry"/>.
+            </summary>
+            <param name="scale">The scale.</param>
+            <returns>Returns the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathGeometry"/>.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.AAT.GlyphData.Compound(System.Collections.Generic.IDictionary{System.UInt16,WaterTrans.GlyphLoader.Internal.AAT.GlyphData})">
+            <summary>
+            Compounds this composite glyph components.
+            </summary>
+            <param name="glyphCache">The cache of GlyphData.</param>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.AAT.LookupSingleRecord">
+            <summary>
+            The metamorphosis subtable's lookup single record.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.AAT.LookupSingleRecord.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.AAT.LookupSingleRecord"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.LookupSingleRecord.GlyphIndex">
+            <summary>Gets GlyphIndex.</summary>
+            <remarks>The glyph index.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.LookupSingleRecord.LookupGlyphIndex">
+            <summary>Gets LookupGlyphIndex.</summary>
+            <remarks>The lookup value.</remarks>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.AAT.MetamorphosisTable">
+            <summary>
+            The chain's metamorphosis subtable.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.AAT.MetamorphosisTable.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.AAT.MetamorphosisTable"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.MetamorphosisTable.Header">
+            <summary>Gets BinarySearchHeader.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.MetamorphosisTable.LookupSingleRecords">
+            <summary>Gets LookupSingleRecords.</summary>
+            <remarks>The list of lookup single record.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.MetamorphosisTable.Length">
+            <summary>Gets Length.</summary>
+            <remarks>Length of subtable in bytes, including this header.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.MetamorphosisTable.Coverage">
+            <summary>Gets Coverage.</summary>
+            <remarks>Length of subtable in bytes, including this header.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.MetamorphosisTable.SubFeatureFlags">
+            <summary>Gets SubFeatureFlags.</summary>
+            <remarks>Flags for the settings that this subtable describes.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.AAT.MetamorphosisTable.Format">
+            <summary>Gets Format.</summary>
+            <remarks>Format of this lookup table. There are five lookup table formats, each with a format number.</remarks>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.Constants">
+            <summary>
+            The GlyphLoader internal constans.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.Constants.RoundDigits">
+            <summary>
+            Round by the given number of digits.
+            </summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.NAME.NameEncoding">
+            <summary>
+            NAME NameRecord name string encoding.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.NAME.NameEncoding.GetEncoding(WaterTrans.GlyphLoader.Internal.NAME.NameRecord)">
+            <summary>
+            Returns an encoding for the specified NameRecord.
+            </summary>
+            <param name="record">The <see cref="T:WaterTrans.GlyphLoader.Internal.NAME.NameRecord"/>.</param>
+            <returns>The encoding that is associated with the specified code page.</returns>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.NAME.NameRecord">
+            <summary>
+            The name records array item.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.NAME.NameRecord.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.NAME.NameRecord"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.NAME.NameRecord.PlatformID">
+            <summary>Platform identifier code.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.NAME.NameRecord.EncodingID">
+            <summary>Platform-specific encoding identifier.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.NAME.NameRecord.LanguageID">
+            <summary>Language identifier.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.NAME.NameRecord.NameID">
+            <summary>Name identifiers.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.NAME.NameRecord.Length">
+            <summary>Name string length in bytes.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.NAME.NameRecord.Offset">
+            <summary>Name string offset in bytes from stringOffset.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.NAME.NameRecord.NameString">
+            <summary>The character strings of the names (Note that these are not necessarily ASCII!).</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.NAME.PlatformID">
+            <summary>The NAME NameRecord PlatformID type enumeration.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.NAME.PlatformID.Unicode">
+            <summary>Indicates Unicode version.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.NAME.PlatformID.Macintosh">
+            <summary>QuickDraw Script Manager code.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.NAME.PlatformID.ISO">
+            <summary>(reserved; do not use)</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.NAME.PlatformID.Microsoft">
+            <summary>Microsoft encoding.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharString">
+            <summary>
+            The Type 2 Charstring Format.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharString.#ctor(WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfSubroutines,WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfSubroutines)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharString"/> class.
+            </summary>
+            <param name="globalSubroutines">The Global Subrs INDEX.</param>
+            <param name="localSubroutines">The Local Subrs INDEX.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharString.Expressions">
+            <summary>The list of expression.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharString.Width">
+            <summary>
+            Gets or sets the width.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharString.XMin">
+            <summary>Gets a minimum x for coordinate data.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharString.YMin">
+            <summary>Gets a minimum y for coordinate data.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharString.XMax">
+            <summary>Gets a maximum x for coordinate data.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharString.YMax">
+            <summary>Gets a maximum y for coordinate data.</summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharString.Parse(System.Byte[],System.Collections.Generic.Stack{System.Double})">
+            <summary>
+            Parse Charstring.
+            </summary>
+            <param name="data">The byte array of The Type 2 Charstring.</param>
+            <param name="operand">The stack of operand.</param>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharString.CalcMetrics">
+            <summary>
+            Calculate glyph metrics.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharString.ConvertToPathGeometry(System.Double)">
+            <summary>
+            Converts to glyph data to <see cref="T:WaterTrans.GlyphLoader.Geometry.PathGeometry"/>.
+            </summary>
+            <param name="scale">The scale.</param>
+            <returns>Returns the <see cref="T:WaterTrans.GlyphLoader.Geometry.PathGeometry"/>.</returns>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharStringExpression">
+            <summary>
+            The Type 2 Charstring Format expression.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharStringExpression.Operators">
+            <summary>
+            The One-byte or Two-byte Type 2 Operators.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharStringExpression.#ctor(System.Int32,System.Double[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharStringExpression"/> class.
+            </summary>
+            <param name="opCode">The One-byte or Two-byte Type 2 operator code.</param>
+            <param name="operands">The array of operand.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharStringExpression.OpCode">
+            <summary>The One-byte or Two-byte Type 2 operator code.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharStringExpression.Operator">
+            <summary>The One-byte or Two-byte Type 2 operator.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharStringExpression.Operands">
+            <summary>The array of operand.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.DictionaryData">
+            <summary>
+            The Compact FontFormat Specification DICT Data.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CFF.DictionaryData.#ctor(System.Byte[],System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.DictionaryData"/> class.
+            </summary>
+            <param name="data">The DICT Data.</param>
+            <param name="strings">The Strings.</param>
+            <param name="isPrivate">The value of Private DICT Data.</param>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexData">
+            <summary>
+            The Compact FontFormat Specification INDEX Data.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexData.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexData"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexData.Count">
+            <summary>
+            Gets a Number of objects stored in INDEX.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexData.OffsetSize">
+            <summary>
+            Gets an offset array element size.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexData.Offsets">
+            <summary>
+            Gets a list of offset.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexData.Objects">
+            <summary>
+            Gets a lisy of object.
+            </summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfCharStrings">
+            <summary>
+            The Compact FontFormat Specification CharStrings INDEX.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfCharStrings.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfCharStrings"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfFontDictionary">
+            <summary>
+            The Compact FontFormat Specification Font DICT INDEX.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfFontDictionary.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfFontDictionary"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfName">
+            <summary>
+            The Compact FontFormat Specification Name INDEX.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfName.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfName"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfName.Names">
+            <summary>
+            Gets a list of name.
+            </summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfString">
+            <summary>
+            The Compact FontFormat Specification String INDEX.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfString.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfString"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfString.Strings">
+            <summary>
+            Gets a list of String.
+            </summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfSubroutines">
+            <summary>
+            The Compact FontFormat Specification Local / Global Subrs INDEX.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfSubroutines.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfSubroutines"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfTopDictionary">
+            <summary>
+            The Compact FontFormat Specification Top DICT INDEX.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfTopDictionary.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.IndexDataOfTopDictionary"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.StandardStrings">
+            <summary>
+            The Compact FontFormat Specification Standard Strings.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.CFF.StandardStrings.Values">
+            <summary>
+            The standard strings.
+            </summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable">
+            <summary>
+            The OpenType common table.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable.Offset">
+            <summary>Gets offset.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable.TableVersionNumberMajor">
+            <summary>Gets a major table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable.TableVersionNumberMinor">
+            <summary>Gets a minor table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable.OffsetScriptList">
+            <summary>Gets the offset to ScriptList table.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable.OffsetFeatureList">
+            <summary>Gets the offset to FeatureList table.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable.OffsetLookupList">
+            <summary>Gets the offset to LookupList table.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable.ScriptCount">
+            <summary>Gets the number of ScriptRecords.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable.ScriptList">
+            <summary>Gets the list of ScriptRecord.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable.FeatureCount">
+            <summary>Gets the number of FeatureRecords.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable.FeatureList">
+            <summary>Gets the list of ScriptRecord.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable.LookupCount">
+            <summary>Gets the number of lookups in this table.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable.LookupList">
+            <summary>Gets the list of LookupTable.</summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.CommonTable.ReadCoverage(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Read coverage table.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+            <returns>The list of ushort.</returns>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.FeatureTable">
+            <summary>
+            The OpenType feature table.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.FeatureTable.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.FeatureTable"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.FeatureTable.Tag">
+            <summary>Gets Tag.</summary>
+            <remarks>4-byte feature identification tag.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.FeatureTable.Offset">
+            <summary>Gets Offset.</summary>
+            <remarks>Offset to Script table.- from beginning of ScriptList.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.FeatureTable.FeatureParams">
+            <summary>Gets or sets FeatureParams.</summary>
+            <remarks>NULL (reserved for offset to FeatureParams).</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.FeatureTable.LookupCount">
+            <summary>Gets or sets LookupCount.</summary>
+            <remarks>Number of LookupList indices for this feature.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.FeatureTable.LookupListIndex">
+            <summary>Gets list of LookupList.</summary>
+            <remarks>Array of LookupList indices for this feature.- zero-based (first lookup is LookupListIndex = 0).</remarks>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.LookupType">
+            <summary>The GPOS lookup type enumeration.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.LookupType.SingleAdjustment">
+            <summary>Single Adjustment Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.LookupType.PairAdjustment">
+            <summary>Pair Adjustment Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.LookupType.CursiveAttachment">
+            <summary>Cursive Attachment Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.LookupType.MarkToBaseAttachment">
+            <summary>MarkToBase Attachment Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.LookupType.MarkToLigatureAttachment">
+            <summary>MarkToLigature Attachment Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.LookupType.MarkToMarkAttachment">
+            <summary>MarkToMark Attachment Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.LookupType.ContextPositioning">
+            <summary>Context Positioning Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.LookupType.ChainedContextPositioning">
+            <summary>Chained Context positioning Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.LookupType.ExtensionPositioning">
+            <summary>Extension positioning Subtable.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.PairAdjustment">
+            <summary>
+            The Pair Adjustment Positioning Subtable.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.PairAdjustment.#ctor(System.UInt16,System.UInt16,WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord,WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.PairAdjustment"/> class.
+            </summary>
+            <param name="firstGlyphIndex">Sets FirstGlyphIndex.</param>
+            <param name="firstValueRecord">Sets FirstValueRecord.</param>
+            <param name="secondGlyphIndex">Sets SecondGlyphIndex.</param>
+            <param name="secondValueRecord">Sets SecondValueRecord.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.PairAdjustment.FirstGlyphIndex">
+            <summary>Gets a first glyph index.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.PairAdjustment.FirstValueRecord">
+            <summary>Gets a first glyph ValueRecord.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.PairAdjustment.SecondGlyphIndex">
+            <summary>Gets a second glyph index.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.PairAdjustment.SecondValueRecord">
+            <summary>Gets a second glyph ValueRecord.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.SingleAdjustment">
+            <summary>
+            The Single Adjustment Positioning Subtable.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.SingleAdjustment.#ctor(System.UInt16,WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.SingleAdjustment"/> class.
+            </summary>
+            <param name="glyphIndex">Sets GlyphIndex.</param>
+            <param name="valueRecord">Sets ValueRecord.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.SingleAdjustment.GlyphIndex">
+            <summary>Gets a glyph index.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.SingleAdjustment.ValueRecord">
+            <summary>Gets a ValueRecord.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueFormat">
+            <summary>The value format bit enumeration.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueFormat.XPlacement">
+            <summary>Includes horizontal adjustment for placement.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueFormat.YPlacement">
+            <summary>Includes vertical adjustment for placement.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueFormat.XAdvance">
+            <summary>Includes horizontal adjustment for advance.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueFormat.YAdvance">
+            <summary>Includes vertical adjustment for advance.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueFormat.XPlaDevice">
+            <summary>Includes horizontal Device table for placement.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueFormat.YPlaDevice">
+            <summary>Includes vertical Device table for placement.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueFormat.XAdvDevice">
+            <summary>Includes horizontal Device table for advance.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueFormat.YAdvDevice">
+            <summary>Includes vertical Device table for advance.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord">
+            <summary>
+            The GPOS ValueRecord.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader,System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+            <param name="valueFormat">The ValueFormat Flags.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord.Format">
+            <summary>Gets the ValueFormat.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord.XPlacement">
+            <summary>Gets a horizontal adjustment for placement.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord.YPlacement">
+            <summary>Gets a vertical adjustment for placement.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord.XAdvance">
+            <summary>Gets a horizontal adjustment for advance.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord.YAdvance">
+            <summary>Gets a vertical adjustment for advance.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord.XPlaDevice">
+            <summary>Gets an offset to Device table for horizontal placement.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord.YPlaDevice">
+            <summary>Gets an offset to Device table for vertical placement.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord.XAdvDevice">
+            <summary>Gets an offset to Device table for horizontal advance.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord.YAdvDevice">
+            <summary>Gets an offset to Device table for vertical advance.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GPOS.ValueRecord.IsEmpty">
+            <summary>Gets a value indicating whether empty.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.AlternateSubstitution">
+            <summary>
+            The GSUB alternate substitution lookup.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.AlternateSubstitution.#ctor(System.UInt16,System.UInt16[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.AlternateSubstitution"/> class.
+            </summary>
+            <param name="glyphIndex">Sets original glyph index.</param>
+            <param name="substitutionGlyphIndex">Sets lookup glyph index.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.AlternateSubstitution.GlyphIndex">
+            <summary>Gets an original glyph index.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.AlternateSubstitution.SubstitutionGlyphIndex">
+            <summary>Gets a lookup glyph index.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.LigatureSubstitution">
+            <summary>
+            The GSUB ligature substitution lookup.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.LigatureSubstitution.#ctor(System.UInt16[],System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.LigatureSubstitution"/> class.
+            </summary>
+            <param name="glyphIndex">Sets original glyph index.</param>
+            <param name="substitutionGlyphIndex">Sets lookup glyph index.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.LigatureSubstitution.GlyphIndex">
+            <summary>Gets an original glyph index.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.LigatureSubstitution.SubstitutionGlyphIndex">
+            <summary>Gets a lookup glyph index.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.LookupType">
+            <summary>The GUB lookup type enumeration.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.LookupType.SingleSubstitution">
+            <summary>Single Substitution Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.LookupType.MultipleSubstitution">
+            <summary>Multiple Substitution Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.LookupType.AlternateSubstitution">
+            <summary>Alternate Substitution Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.LookupType.LigatureSubstitution">
+            <summary>Ligature Substitution Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.LookupType.ContextualSubstitution">
+            <summary>Contextual Substitution Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.LookupType.ChainingContextualSubstitution">
+            <summary>Chaining Contextual Substitution Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.LookupType.ExtensionSubstitution">
+            <summary>Extension Substitution Subtable.</summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.LookupType.ReverseChainingContextualSingleSubstitution">
+            <summary>Reverse Chaining Contextual Single Substitution Subtable.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.MultipleSubstitution">
+            <summary>
+            The GSUB multiple substitution lookup.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.MultipleSubstitution.#ctor(System.UInt16,System.UInt16[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.MultipleSubstitution"/> class.
+            </summary>
+            <param name="glyphIndex">Sets original glyph index.</param>
+            <param name="substitutionGlyphIndex">Sets lookup glyph index.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.MultipleSubstitution.GlyphIndex">
+            <summary>Gets an original glyph index.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.MultipleSubstitution.SubstitutionGlyphIndex">
+            <summary>Gets a lookup glyph index.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.SingleSubstitution">
+            <summary>
+            The GSUB single substitution lookup.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.SingleSubstitution.#ctor(System.UInt16,System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.SingleSubstitution"/> class.
+            </summary>
+            <param name="glyphIndex">Sets original glyph index.</param>
+            <param name="substitutionGlyphIndex">Sets lookup glyph index.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.SingleSubstitution.GlyphIndex">
+            <summary>Gets an original glyph index.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.GSUB.SingleSubstitution.SubstitutionGlyphIndex">
+            <summary>Gets a lookup glyph index.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemRecord">
+            <summary>
+            The OpenType language system record.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemRecord.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemRecord"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemRecord.#ctor(System.Boolean,System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemRecord"/> class.
+            </summary>
+            <param name="isDefault">Sets IsDefault.</param>
+            <param name="offset">Sets Offset.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemRecord.IsDefault">
+            <summary>Gets a value indicating whether default LangSysTable.</summary>
+            <remarks>Default LangSysTable.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemRecord.Tag">
+            <summary>Gets Tag.</summary>
+            <remarks>LangSysTag identifier.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemRecord.Offset">
+            <summary>Gets Offset.</summary>
+            <remarks>Offset to LangSys table.— from beginning of Script table.</remarks>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemTable">
+            <summary>
+            The OpenType language system table.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemTable.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemTable"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+            <param name="tag">The language system identification tag.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemTable.Tag">
+            <summary>Gets Tag.</summary>
+            <remarks>4-byte language system identification tag.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemTable.LookupOrder">
+            <summary>Gets LookupOrder.</summary>
+            <remarks>Reserved for an offset to a reordering table.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemTable.ReqFeatureIndex">
+            <summary>Gets ReqFeatureIndex.</summary>
+            <remarks>Index of a feature required for this language system.— if no required features = 0xFFFF.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemTable.FeatureCount">
+            <summary>Gets FeatureCount.</summary>
+            <remarks>Number of FeatureIndex values for this language system.— excludes the required feature.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LanguageSystemTable.FeatureIndexList">
+            <summary>Gets FeatureIndexList.</summary>
+            <remarks>Array of indices into the FeatureList.— in arbitrary order.</remarks>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.LookupTable">
+            <summary>
+            The OpenType lookup table.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.LookupTable.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.LookupTable"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LookupTable.Offset">
+            <summary>Gets Offset.</summary>
+            <remarks>Offset to Script table.- from beginning of ScriptList.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LookupTable.LookupType">
+            <summary>Gets or sets LookupType.</summary>
+            <remarks>Different enumerations for GSUB and GPOS.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LookupTable.LookupFlag">
+            <summary>Gets or sets LookupFlag.</summary>
+            <remarks>Lookup qualifiers.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LookupTable.SubTableCount">
+            <summary>Gets or sets SubTableCount.</summary>
+            <remarks>Number of SubTables for this lookup.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LookupTable.SubTableList">
+            <summary>Gets array of offsets to SubTables.- from beginning of Lookup table.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LookupTable.SingleSubstitutionList">
+            <summary>Gets list of SingleSubstitution.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LookupTable.MultipleSubstitutionList">
+            <summary>Gets list of MultipleSubstitution.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LookupTable.AlternateSubstitutionList">
+            <summary>Gets list of AlternateSubstitution.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LookupTable.LigatureSubstitutionList">
+            <summary>Gets list of LigatureSubstitution.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LookupTable.SingleAdjustmentList">
+            <summary>Gets list of SingleAdjustment.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.LookupTable.PairAdjustmentList">
+            <summary>Gets list of PairAdjustment.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.OpenType.ScriptTable">
+            <summary>
+            The OpenType script table.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.OpenType.ScriptTable.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.ScriptTable"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.ScriptTable.Tag">
+            <summary>Gets Tag.</summary>
+            <remarks>4-byte ScriptTag identifier.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.ScriptTable.Offset">
+            <summary>Gets Offset.</summary>
+            <remarks>Offset to Script table.— from beginning of ScriptList.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.ScriptTable.DefaultLanguageSystemOffset">
+            <summary>Gets or Sets DefaultLanguageSystemOffset.</summary>
+            <remarks>Offset to DefaultLanguageSystem table.— from beginning of Script table.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.ScriptTable.LanguageSystemCount">
+            <summary>Gets or Sets LanguageSystemCount.</summary>
+            <remarks>Number of LanguageSystemRecords for this script.— excluding the DefaultLangSys.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.ScriptTable.LanguageSystemRecords">
+            <summary>Gets LanguageSystemRecords.</summary>
+            <remarks>List of LanguageSystemRecord.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.OpenType.ScriptTable.LanguageSystemTables">
+            <summary>Gets LanguageSystemTables.</summary>
+            <remarks>List of LanguageSystemTable.</remarks>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.SFNT.EncodingRecord">
+            <summary>
+            The offset to the subtable for each encoding.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.EncodingRecord.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.SFNT.EncodingRecord"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.EncodingRecord.PlatformID">
+            <summary>Gets a platform ID.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.EncodingRecord.EncodingID">
+            <summary>Gets a platform-specific encoding ID.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.EncodingRecord.Offset">
+            <summary>Gets a byte offset from beginning of table to the subtable for this encoding.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.EncodingRecord.GlyphMap">
+            <summary>Gets the mapping of a charactor code point to a glyph index.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.EncodingRecord.VariationGlyphMap">
+            <summary>Gets the mapping of a Unicode Variation Sequences to a glyph index.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.SFNT.GlyphIndexArrayComparer">
+            <summary>
+            The glyph index array equality comparer.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphIndexArrayComparer.Equals(System.UInt16[],System.UInt16[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphIndexArrayComparer.GetHashCode(System.UInt16[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary">
+            <summary>
+            The glyph map dictionary.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.#ctor(System.Collections.Generic.Dictionary{System.UInt16,System.UInt16})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary"/> class.
+            </summary>
+            <param name="internalDictionary">The internal dictionary.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.Keys">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.Values">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.Count">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.IsReadOnly">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.Item(System.UInt16)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.Add(System.UInt16,System.UInt16)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.ContainsKey(System.UInt16)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.Remove(System.UInt16)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.TryGetValue(System.UInt16,System.UInt16@)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.Add(System.Collections.Generic.KeyValuePair{System.UInt16,System.UInt16})">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.Clear">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.Contains(System.Collections.Generic.KeyValuePair{System.UInt16,System.UInt16})">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.CopyTo(System.Collections.Generic.KeyValuePair{System.UInt16,System.UInt16}[],System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.Remove(System.Collections.Generic.KeyValuePair{System.UInt16,System.UInt16})">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMapDictionary.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1">
+            <summary>
+            The glyph metrics dictionary.
+            </summary>
+            <typeparam name="TValue">The type to internal dictionary.</typeparam>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.#ctor(System.Collections.Generic.Dictionary{System.UInt16,`0},System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1"/> class.
+            </summary>
+            <param name="internalDictionary">The internal dictionary.</param>
+            <param name="unitsPerEm">The units per em in ‘head’ table.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.Keys">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.Values">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.Count">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.IsReadOnly">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.Item(System.UInt16)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.Add(System.UInt16,System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.ContainsKey(System.UInt16)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.Remove(System.UInt16)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.TryGetValue(System.UInt16,System.Double@)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.Add(System.Collections.Generic.KeyValuePair{System.UInt16,System.Double})">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.Clear">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.Contains(System.Collections.Generic.KeyValuePair{System.UInt16,System.Double})">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.CopyTo(System.Collections.Generic.KeyValuePair{System.UInt16,System.Double}[],System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.Remove(System.Collections.Generic.KeyValuePair{System.UInt16,System.Double})">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.GlyphMetricsDictionary`1.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary">
+            <summary>
+            The ligature glyph map dictionary.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.#ctor(System.Collections.Generic.Dictionary{System.UInt16[],System.UInt16})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary"/> class.
+            </summary>
+            <param name="internalDictionary">The internal dictionary.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.Keys">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.Values">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.Count">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.IsReadOnly">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.Item(System.UInt16[])">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.Add(System.UInt16[],System.UInt16)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.ContainsKey(System.UInt16[])">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.Remove(System.UInt16[])">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.TryGetValue(System.UInt16[],System.UInt16@)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.Add(System.Collections.Generic.KeyValuePair{System.UInt16[],System.UInt16})">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.Clear">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.Contains(System.Collections.Generic.KeyValuePair{System.UInt16[],System.UInt16})">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.CopyTo(System.Collections.Generic.KeyValuePair{System.UInt16[],System.UInt16}[],System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.Remove(System.Collections.Generic.KeyValuePair{System.UInt16[],System.UInt16})">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.LigatureGlyphMapDictionary.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary">
+            <summary>
+            The multiple glyph map dictionary.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.#ctor(System.Collections.Generic.Dictionary{System.UInt16,System.UInt16[]})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary"/> class.
+            </summary>
+            <param name="internalDictionary">The internal dictionary.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.Keys">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.Values">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.Count">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.IsReadOnly">
+            <inheritdoc />
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.Item(System.UInt16)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.Add(System.UInt16,System.UInt16[])">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.ContainsKey(System.UInt16)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.Remove(System.UInt16)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.TryGetValue(System.UInt16,System.UInt16[]@)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.Add(System.Collections.Generic.KeyValuePair{System.UInt16,System.UInt16[]})">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.Clear">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.Contains(System.Collections.Generic.KeyValuePair{System.UInt16,System.UInt16[]})">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.CopyTo(System.Collections.Generic.KeyValuePair{System.UInt16,System.UInt16[]}[],System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.Remove(System.Collections.Generic.KeyValuePair{System.UInt16,System.UInt16[]})">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.SFNT.MultipleGlyphMapDictionary.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableDirectory">
+            <summary>
+            Directory of font tables, containing size and other info.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableDirectory.#ctor(System.String,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableDirectory"/> class.
+            </summary>
+            <param name="tag">Set instance value for Tag.</param>
+            <param name="checksum">Set instance value for CheckSum.</param>
+            <param name="offset">Set instance value for Offset.</param>
+            <param name="length">Set instance value for Length.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableDirectory.Tag">
+            <summary>
+            Gets 4-byte identifier.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableDirectory.CheckSum">
+            <summary>
+            Gets checkSum for this table.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableDirectory.Offset">
+            <summary>
+            Gets offset from beginning of TrueType font file.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableDirectory.Length">
+            <summary>
+            Gets length of this table.
+            </summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableNames">
+            <summary>
+            Font tables.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.CMAP">
+            <summary>
+            CMAP table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.NAME">
+            <summary>
+            NAME table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.MAXP">
+            <summary>
+            MAXP table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.HEAD">
+            <summary>
+            HEAD table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.HHEA">
+            <summary>
+            HHEA table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.HMTX">
+            <summary>
+            HMTX table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.OS2">
+            <summary>
+            OS2 table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.POST">
+            <summary>
+            POST table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.LOCA">
+            <summary>
+            LOCA table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.VHEA">
+            <summary>
+            VHEA table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.VMTX">
+            <summary>
+            VMTX table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.MORT">
+            <summary>
+            MORT table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.GSUB">
+            <summary>
+            GSUB table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.GPOS">
+            <summary>
+            GPOS table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.CFF">
+            <summary>
+            CFF table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.GLYF">
+            <summary>
+            GLYF table.
+            </summary>
+        </member>
+        <member name="F:WaterTrans.GlyphLoader.Internal.TableNames.RequiedTables">
+            <summary>
+            Gets the required tables.
+            </summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfCFF">
+            <summary>
+            Table of CFF.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfCFF.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfCFF"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.TableVersionNumberMajor">
+            <summary>Gets a major table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.TableVersionNumberMinor">
+            <summary>Gets a minor table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.HeaderSize">
+            <summary>Gets a header size.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.Offset">
+            <summary>Gets an absolute offset size.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.NameIndex">
+            <summary>Gets the Name INDEX.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.TopDictionaryIndex">
+            <summary>Gets the Top DICT INDEX.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.StringIndex">
+            <summary>Gets the String INDEX.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.GlobalSubroutines">
+            <summary>Gets the Global Subrs INDEX.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.CharStrings">
+            <summary>Gets the CharStrings INDEX.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.FontDictionaryIndex">
+            <summary>Gets the Font DICT INDEX.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.TopDictionary">
+            <summary>Gets the Top DICT Data.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.TopPrivateDictionary">
+            <summary>Gets the Private DICT Data of Top DICT.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.TopLocalSubroutines">
+            <summary>Gets the Local Subrs INDEX of Top DICT.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.FontDictionaries">
+            <summary>Gets a list of the Font DICT Data.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.FontPrivateDictionaries">
+            <summary>Gets a list of the Private DICT Data of Font DICT.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.LocalSubroutinesList">
+            <summary>Gets a list of the Local Subrs INDEX.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCFF.FDSelect">
+            <summary>Gets the Font DICT INDEX by glyph index.</summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfCFF.ParseCharString(System.UInt16,System.UInt16)">
+            <summary>
+            Parse to glyph data to <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharString"/>.
+            </summary>
+            <param name="glyphIndex">The index of the glyph.</param>
+            <param name="width">The advance width in 'htmx' table.</param>
+            <returns>Returns the <see cref="T:WaterTrans.GlyphLoader.Internal.OpenType.CFF.CharString"/>.</returns>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfCMAP">
+            <summary>
+            Table of CMAP.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfCMAP.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfCMAP"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCMAP.EncodingRecords">
+            <summary>Gets a list of EncodingRecord.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCMAP.TableVersionNumber">
+            <summary>Gets a table version number.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCMAP.NumTables">
+            <summary>Gets a number of encoding tables.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfCMAP.GlyphMap">
+            <summary>Gets the mapping of a charactor code point to a glyph index optimal.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfGPOS">
+            <summary>
+            Table of GPOS.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfGPOS.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfGPOS"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfGSUB">
+            <summary>
+            Table of GSUB.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfGSUB.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfGSUB"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfHEAD">
+            <summary>
+            Table of HEAD.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfHEAD.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfHEAD"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.TableVersionNumberMajor">
+            <summary>Gets a major table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.TableVersionNumberMinor">
+            <summary>Gets a minor table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.FontRevisionMajor">
+            <summary>Gets a major font revision.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.FontRevisionMinor">
+            <summary>Gets a minor font revision.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.CheckSumAdjustment">
+            <summary>Gets a check sum adjustment.</summary>
+            <remarks>To compute:  set it to 0, sum the entire font as ULONG, then store 0xB1B0AFBA - sum.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.MagicNumber">
+            <summary>Gets a magic number.</summary>
+            <remarks>Set to 0x5F0F3CF5.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.Flags">
+            <summary>Gets a flags.</summary>
+            <remarks>Bit 0 - baseline for font at y=0;Bit 1 - left sidebearing at x=0;Bit 2 - instructions may depend on point size;Bit 3 - force ppem to integer values for all internal scaler math; may use fractional ppem sizes if this bit is clear;Bit 4 - instructions may alter advance width (the advance widths might not scale linearly);Note: All other bits must be zero.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.UnitsPerEm">
+            <summary>Gets the UnitsPerEm.</summary>
+            <remarks>Valid range is from 16 to 16384.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.Created">
+            <summary>Gets a created date.</summary>
+            <remarks>International date (8-byte field).</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.Modified">
+            <summary>Gets a modified date.</summary>
+            <remarks>International date (8-byte field).</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.XMin">
+            <summary>Gets a xMin.</summary>
+            <remarks>For all glyph bounding boxes.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.YMin">
+            <summary>Gets a yMin.</summary>
+            <remarks>For all glyph bounding boxes.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.XMax">
+            <summary>Gets a xMax.</summary>
+            <remarks>For all glyph bounding boxes.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.YMax">
+            <summary>Gets a yMax.</summary>
+            <remarks>For all glyph bounding boxes.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.MacStyle">
+            <summary>Gets the MacStyle.</summary>
+            <remarks>Bit 0 bold (if set to 1); Bit 1 italic (if set to 1)Bits 2-15 reserved (set to 0).</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.LowestRecPPEM">
+            <summary>Gets a smallest readable size in pixels.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.FontDirectionHint">
+            <summary>Gets a font direction hint.</summary>
+            <remarks>0 Fully mixed directional glyphs; 1 Only strongly left to right; 2 Like 1 but also contains neutrals ; -1 Only strongly right to left; -2 Like -1 but also contains neutrals.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.IndexToLocFormat">
+            <summary>Gets the IndexToLocFormat.</summary>
+            <remarks>0 for short offsets, 1 for long.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHEAD.GlyphDataFormat">
+            <summary>Gets the GlyphDataFormat.</summary>
+            <remarks>0 for current format.</remarks>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfHHEA">
+            <summary>
+            Table of HHEA.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfHHEA.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfHHEA"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.TableVersionNumberMajor">
+            <summary>Gets a major table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.TableVersionNumberMinor">
+            <summary>Gets a minor table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.Ascender">
+            <summary>Gets the typographic ascent.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.Descender">
+            <summary>Gets the typographic descent.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.LineGap">
+            <summary>Gets the line gap.</summary>
+            <remarks>Typographic line gap. Negative LineGap values are treated as zero in Windows 3.1, System 6, and System 7.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.AdvanceWidthMax">
+            <summary>Gets the maximum advance width value in ‘hmtx’ table.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.MinLeftSideBearing">
+            <summary>Gets the minimum left sidebearing value in ‘hmtx’ table.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.MinRightSideBearing">
+            <summary>Gets the minimum right sidebearing value; calculated as Min(aw - lsb - (xMax - xMin)).</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.XMaxExtent">
+            <summary>Gets the xMaxExtent.</summary>
+            <remarks>Max(lsb + (xMax - xMin)).</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.CaretSlopeRise">
+            <summary>Gets the caretSlopeRise.</summary>
+            <remarks>Used to calculate the slope of the cursor (rise/run); 1 for vertical.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.CaretSlopeRun">
+            <summary>Gets the caretSlopeRun.</summary>
+            <remarks>0 for vertical.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.Reserved1">
+            <summary>Gets a reserved1.</summary>
+            <remarks>Reserved.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.Reserved2">
+            <summary>Gets a reserved2.</summary>
+            <remarks>Reserved.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.Reserved3">
+            <summary>Gets a reserved3.</summary>
+            <remarks>Reserved.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.Reserved4">
+            <summary>Gets a reserved4.</summary>
+            <remarks>Reserved.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.Reserved5">
+            <summary>Gets a reserved5.</summary>
+            <remarks>Reserved.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.MetricDataFormat">
+            <summary>Gets the metric data format.</summary>
+            <remarks>0 for current format.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHHEA.NumberOfHMetrics">
+            <summary>Gets the number of hMetrics.</summary>
+            <remarks>Number of hMetric entries in ‘hmtx’table; may be smaller than the total number of glyphs in the font.</remarks>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfHMTX">
+            <summary>
+            Table of HMTX.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfHMTX.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader,System.UInt16,System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfHMTX"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+            <param name="numberOfHMetrics">The number of hMetrics in ‘hhea’ table.</param>
+            <param name="numGlyphs">The number of glyphs in ‘maxp’ table.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHMTX.AdvanceWidths">
+            <summary>Gets an advance width.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfHMTX.LeftSideBearings">
+            <summary>Gets an glyph left side bearing.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfLOCA">
+            <summary>
+            Table of LOCA.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfLOCA.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader,System.UInt16,System.Int16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfLOCA"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+            <param name="numGlyphs">The value for numGlyphs is found in the 'maxp' table.</param>
+            <param name="indexToLocFormat">The version is specified in the indexToLocFormat entry in the 'head' table.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfLOCA.Offsets">
+            <summary>Gets the offsets to the locations of the glyphs in the font, relative to the beginning of the glyphData table.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfMAXP">
+            <summary>
+            Table of MAXP.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfMAXP.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfMAXP"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.TableVersionNumberMajor">
+            <summary>Gets a major table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.TableVersionNumberMinor">
+            <summary>Gets a minor table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.NumGlyphs">
+            <summary>Gets a number of glyphs in the font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.MaxPoints">
+            <summary>Gets a maximum points in a non-composite glyph.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.MaxContours">
+            <summary>Gets a maximum contours in a non-composite glyph.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.MaxCompositePoints">
+            <summary>Gets a maximum points in a composite glyph.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.MaxCompositeContours">
+            <summary>Gets a maximum contours in a composite glyph.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.MaxZones">
+            <summary>Gets a maximum zones.</summary>
+            <remarks>1 if instructions do not use the twilight zone (Z0), or 2 if instructions do use Z0; should be set to 2 in most cases.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.MaxTwilightPoints">
+            <summary>Gets a maximum points used in Z0.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.MaxStorage">
+            <summary>Gets a number of Storage Area locations.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.MaxFunctionDefs">
+            <summary>Gets a number of FDEFs, equal to the highest function number + 1.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.MaxInstructionDefs">
+            <summary>Gets a number of IDEFs.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.MaxStackElements">
+            <summary>Gets a maximum stack depth across Font Program ('fpgm' table), CVT Program ('prep' table) and all glyph instructions (in the 'glyf' table).</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.MaxSizeOfInstructions">
+            <summary>Gets a maximum byte count for glyph instructions.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.MaxComponentElements">
+            <summary>Gets a maximum number of components referenced at “top level” for any composite glyph.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMAXP.MaxComponentDepth">
+            <summary>Gets a maximum levels of recursion; 1 for simple components.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfMORT">
+            <summary>
+            Table of MORT.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfMORT.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfMORT"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMORT.Chains">
+            <summary>Gets the metamorphosis chains.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMORT.TableVersionNumberMajor">
+            <summary>Gets a major table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMORT.TableVersionNumberMinor">
+            <summary>Gets a minor table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfMORT.NChains">
+            <summary>Gets a number of metamorphosis chains contained in this table.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfNAME">
+            <summary>
+            Table of NAME.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfNAME.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfNAME"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfNAME.Format">
+            <summary>Format selector. Set to 0.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfNAME.NumberOfRecords">
+            <summary>The number of nameRecords in this name table.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfNAME.StringOffset">
+            <summary>Offset in bytes to the beginning of the name character strings.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfNAME.NameRecords">
+            <summary>Get a list of NameRecord.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfOS2">
+            <summary>
+            Table of OS2.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfOS2.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfOS2"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.Version">
+            <summary>Gets the version number for the OS/2 table: 0x0000 to 0x0005.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.AvgCharWidth">
+            <summary>Gets the Average Character Width parameter specifies the arithmetic average of the escapement (width) of all non-zero width glyphs in the font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.WeightClass">
+            <summary>Gets indicates the visual weight (degree of blackness or thickness of strokes) of the characters in the font. Values from 1 to 1000 are valid.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.WidthClass">
+            <summary>Gets indicates a relative change from the normal aspect ratio (width to height ratio) as specified by a font designer for the glyphs in a font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.Type">
+            <summary>Gets indicates font embedding licensing rights for the font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.SubscriptXSize">
+            <summary>Gets the recommended horizontal size in font design units for subscripts for this font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.SubscriptYSize">
+            <summary>Gets the recommended vertical size in font design units for subscripts for this font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.SubscriptXOffset">
+            <summary>Gets the recommended horizontal offset in font design units for subscripts for this font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.SubscriptYOffset">
+            <summary>Gets the recommended vertical offset in font design units from the baseline for subscripts for this font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.SuperscriptXSize">
+            <summary>Gets the recommended horizontal size in font design units for superscripts for this font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.SuperscriptYSize">
+            <summary>Gets the recommended vertical size in font design units for superscripts for this font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.SuperscriptXOffset">
+            <summary>Gets the recommended horizontal offset in font design units for superscripts for this font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.SuperscriptYOffset">
+            <summary>Gets the recommended vertical offset in font design units from the baseline for superscripts for this font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.StrikeoutSize">
+            <summary>Gets thickness of the strikeout stroke in font design units.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.StrikeoutPosition">
+            <summary>Gets the position of the top of the strikeout stroke relative to the baseline in font design units.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.FamilyClass">
+            <summary>Gets a classification of font-family design.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.Panose1">
+            <summary>Gets additional specifications are required for PANOSE to classify non-Latin character sets.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.Panose2">
+            <summary>Gets additional specifications are required for PANOSE to classify non-Latin character sets.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.Panose3">
+            <summary>Gets additional specifications are required for PANOSE to classify non-Latin character sets.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.Panose4">
+            <summary>Gets additional specifications are required for PANOSE to classify non-Latin character sets.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.Panose5">
+            <summary>Gets additional specifications are required for PANOSE to classify non-Latin character sets.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.Panose6">
+            <summary>Gets additional specifications are required for PANOSE to classify non-Latin character sets.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.Panose7">
+            <summary>Gets additional specifications are required for PANOSE to classify non-Latin character sets.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.Panose8">
+            <summary>Gets additional specifications are required for PANOSE to classify non-Latin character sets.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.Panose9">
+            <summary>Gets additional specifications are required for PANOSE to classify non-Latin character sets.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.Panose10">
+            <summary>Gets additional specifications are required for PANOSE to classify non-Latin character sets.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.UnicodeRange1">
+            <summary>Gets the Unicode blocks or ranges encompassed by the font file in 'cmap' subtables for platform 3, encoding ID 1 (Microsoft platform, Unicode BMP) and platform 3, encoding ID 10 (Microsoft platform, Unicode full repertoire).</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.UnicodeRange2">
+            <summary>Gets the Unicode blocks or ranges encompassed by the font file in 'cmap' subtables for platform 3, encoding ID 1 (Microsoft platform, Unicode BMP) and platform 3, encoding ID 10 (Microsoft platform, Unicode full repertoire).</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.UnicodeRange3">
+            <summary>Gets the Unicode blocks or ranges encompassed by the font file in 'cmap' subtables for platform 3, encoding ID 1 (Microsoft platform, Unicode BMP) and platform 3, encoding ID 10 (Microsoft platform, Unicode full repertoire).</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.UnicodeRange4">
+            <summary>Gets the Unicode blocks or ranges encompassed by the font file in 'cmap' subtables for platform 3, encoding ID 1 (Microsoft platform, Unicode BMP) and platform 3, encoding ID 10 (Microsoft platform, Unicode full repertoire).</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.VendorID">
+            <summary>Gets the four-character identifier for the vendor of the given type face.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.Selection">
+            <summary>Gets Contains information concerning the nature of the font patterns.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.FirstCharIndex">
+            <summary>Gets the minimum Unicode index (character code) in this font, according to the 'cmap' subtable for platform ID 3 and platform- specific encoding ID 0 or 1.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.LastCharIndex">
+            <summary>Gets the maximum Unicode index (character code) in this font, according to the 'cmap' subtable for platform ID 3 and encoding ID 0 or 1.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.TypoAscender">
+            <summary>Gets the typographic ascender for this font. This field should be combined with the sTypoDescender and sTypoLineGap values to determine default line spacing.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.TypoDescender">
+            <summary>Gets the typographic descender for this font. This field should be combined with the sTypoAscender and sTypoLineGap values to determine default line spacing. </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.TypoLineGap">
+            <summary>Gets the typographic line gap for this font. This field should be combined with the sTypoAscender and sTypoDescender values to determine default line spacing. </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.WinAscent">
+            <summary>Gets the “Windows ascender” metric. </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.WinDescent">
+            <summary>Gets the “Windows descender” metric.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.CodePageRange1">
+            <summary>Gets the code pages encompassed by the font file in the 'cmap' subtable for platform 3, encoding ID 1 (Microsoft platform, Unicode BMP). If the font file is encoding ID 0, then the Symbol Character Set bit should be set.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.CodePageRange2">
+            <summary>Gets the code pages encompassed by the font file in the 'cmap' subtable for platform 3, encoding ID 1 (Microsoft platform, Unicode BMP). If the font file is encoding ID 0, then the Symbol Character Set bit should be set.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.XHeight">
+            <summary>Gets the distance between the baseline and the approximate height of non-ascending lowercase letters measured in FUnits.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.CapHeight">
+            <summary>Gets the distance between the baseline and the approximate height of non-ascending lowercase letters measured in FUnits.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.DefaultChar">
+            <summary>Gets the Unicode code point, in UTF-16 encoding, of a character that can be used for a default glyph if a requested character is not supported in the font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.BreakChar">
+            <summary>Gets the Unicode code point, in UTF-16 encoding, of a character that can be used as a default break character.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.MaxContext">
+            <summary>Gets the maximum length of a target glyph context for any feature in this font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.LowerOpticalPointSize">
+            <summary>Gets the lower value of the size range for which this font has been designed.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfOS2.UpperOpticalPointSize">
+            <summary>Gets the upper value of the size range for which this font has been designed.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfPOST">
+            <summary>
+            Table of POST.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfPOST.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfPOST"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfPOST.Version">
+            <summary>Gets the table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfPOST.ItalicAngle">
+            <summary>Gets the italic angle in counter-clockwise degrees from the vertical. Zero for upright text, negative for text that leans to the right (forward).</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfPOST.UnderlinePosition">
+            <summary>Gets suggested distance of the top of the underline from the baseline (negative values indicate below baseline).</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfPOST.UnderlineThickness">
+            <summary>Gets suggested values for the underline thickness. In general, the underline thickness should match the thickness of the underscore character (U+005F LOW LINE), and should also match the strikeout thickness, which is specified in the OS/2 table.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfPOST.IsFixedPitch">
+            <summary>Gets the fixed pitch. Set to 0 if the font is proportionally spaced, non-zero if the font is not proportionally spaced (i.e. monospaced).</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfPOST.MinMemType42">
+            <summary>Gets the minimum memory usage when an OpenType font is downloaded.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfPOST.MaxMemType42">
+            <summary>Gets the maximum memory usage when an OpenType font is downloaded.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfPOST.MinMemType1">
+            <summary>Gets the minimum memory usage when an OpenType font is downloaded as a Type 1 font.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfPOST.MaxMemType1">
+            <summary>Gets the maximum memory usage when an OpenType font is downloaded as a Type 1 font.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfVHEA">
+            <summary>
+            Table of VHEA.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfVHEA.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfVHEA"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.TableVersionNumberMajor">
+            <summary>Gets a major table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.TableVersionNumberMinor">
+            <summary>Gets a minor table version.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.Ascender">
+            <summary>Gets the ascender.</summary>
+            <remarks>Distance in FUnits from the centerline to the previous line’s descent.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.Descender">
+            <summary>Gets the descender.</summary>
+            <remarks>Distance in FUnits from the centerline to the next line’s ascent.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.LineGap">
+            <summary>Gets the line gap.</summary>
+            <remarks>Reserved; set to 0.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.AdvanceHeightMax">
+            <summary>Gets the maximum advance height.</summary>
+            <remarks>The maximum advance height measurement in FUnits found in the font. This value must be consistent with the entries in the vertical metrics table.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.MinTopSideBearing">
+            <summary>Gets the minimum top sidebearing measurement.</summary>
+            <remarks>The minimum top sidebearing measurement found in the font, in FUnits. This value must be consistent with the entries in the vertical metrics table.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.MinBottomSideBearing">
+            <summary>Gets the minimum bottom sidebearing measurement.</summary>
+            <remarks>The minimum bottom sidebearing measurement found in the font, in FUnits. This value must be consistent with the entries in the vertical metrics table.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.YMaxExtent">
+            <summary>Gets the yMaxExtent.</summary>
+            <remarks>Defined as yMaxExtent=minTopSideBearing+(yMax-yMin).</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.CaretSlopeRise">
+            <summary>Gets the caretSlopeRise.</summary>
+            <remarks>The value of the caretSlopeRise field divided by the value of the caretSlopeRun Field determines the slope of the caret. A value of 0 for the rise and a value of 1 for the run specifies a horizontal caret. A value of 1 for the rise and a value of 0 for the run specifies a vertical caret. Intermediate values are desirable for fonts whose glyphs are oblique or italic. For a vertical font, a horizontal caret is best.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.CaretSlopeRun">
+            <summary>Gets the caretSlopeRun.</summary>
+            <remarks>See the caretSlopeRise field. Value=1 for nonslanted vertical fonts.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.CaretOffset">
+            <summary>Gets the caret offset.</summary>
+            <remarks>The amount by which the highlight on a slanted glyph needs to be shifted away from the glyph in order to produce the best appearance. Set value equal to 0 for nonslanted fonts.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.Reserved1">
+            <summary>Gets a reserved1.</summary>
+            <remarks>Reserved.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.Reserved2">
+            <summary>Gets a reserved2.</summary>
+            <remarks>Reserved.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.Reserved3">
+            <summary>Gets a reserved3.</summary>
+            <remarks>Reserved.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.Reserved4">
+            <summary>Gets a reserved4.</summary>
+            <remarks>Reserved.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.MetricDataFormat">
+            <summary>Gets the metric data format.</summary>
+            <remarks>0 for current format.</remarks>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVHEA.NumberOfVMetrics">
+            <summary>Gets the Number of advance heights in the vertical metrics table.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TableOfVMTX">
+            <summary>
+            Table of VMTX.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TableOfVMTX.#ctor(WaterTrans.GlyphLoader.Internal.TypefaceReader,System.UInt16,System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TableOfVMTX"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/>.</param>
+            <param name="numberOfVMetrics">The number of vMetrics in ‘vhea’ table.</param>
+            <param name="numGlyphs">The number of glyphs in ‘maxp’ table.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVMTX.AdvanceHeights">
+            <summary>Gets an advance height, in font design units.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TableOfVMTX.TopSideBearings">
+            <summary>Gets an glyph top side bearing, in font design units.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Internal.TypefaceReader">
+            <summary>
+            Internal processing class for accessing font data.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.#ctor(System.Byte[],System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Internal.TypefaceReader"/> class.
+            </summary>
+            <param name="byteArray">The font file byte array.</param>
+            <param name="position">The byte array position.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Internal.TypefaceReader.Position">
+            <summary>
+            Gets or sets the stream position.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadString(System.Int32,System.Text.Encoding)">
+            <summary>
+            Read string.
+            </summary>
+            <param name="len">Number of length.</param>
+            <param name="encoding">Encoding.</param>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadCharArray(System.Int32)">
+            <summary>
+            Read char array.
+            </summary>
+            <param name="len">Number of length.</param>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadBytes(System.Int32)">
+            <summary>
+            Read byte array.
+            </summary>
+            <param name="len">Number of length.</param>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadOffset(System.Byte)">
+            <summary>
+            Read specified (1-4) length.
+            </summary>
+            <param name="size">The value is element size.</param>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadChar">
+            <summary>
+            Read char.
+            </summary>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadSByte">
+            <summary>
+            Read sbyte.
+            </summary>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadByte">
+            <summary>
+            Read byte.
+            </summary>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadUInt16">
+            <summary>
+            Read UInt16.
+            </summary>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadInt16">
+            <summary>
+            Read Int16.
+            </summary>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadUInt24">
+            <summary>
+            Read UInt24.
+            </summary>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadUInt32">
+            <summary>
+            Read UInt32.
+            </summary>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadInt32">
+            <summary>
+            Read Int32.
+            </summary>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadUInt64">
+            <summary>
+            Read UInt64.
+            </summary>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadInt64">
+            <summary>
+            Read Int64.
+            </summary>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadFixed">
+            <summary>
+            Read Fixed.
+            </summary>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadFword">
+            <summary>
+            Read Fword.
+            </summary>
+            <returns>Read result.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Internal.TypefaceReader.ReadF2Dot14">
+            <summary>
+            Read F2Dot14.
+            </summary>
+            <returns>Read result.</returns>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.OpenType.Adjustment">
+            <summary>
+            The GPOS adjustment.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.OpenType.Adjustment.#ctor(System.Int16,System.Int16,System.Int16,System.Int16,System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.OpenType.Adjustment"/> class.
+            </summary>
+            <param name="xPlacement">The value of a horizontal adjustment for placement.</param>
+            <param name="yPlacement">The value of a vertical adjustment for placement.</param>
+            <param name="xAdvance">The value of a horizontal adjustment for advance.</param>
+            <param name="yAdvance">The value of a vertical adjustment for advance.</param>
+            <param name="unitsPerEm">The units per em in 'head' table.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.OpenType.Adjustment.XPlacement">
+            <summary>Gets a horizontal adjustment for placement.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.OpenType.Adjustment.YPlacement">
+            <summary>Gets a vertical adjustment for placement.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.OpenType.Adjustment.XAdvance">
+            <summary>Gets a horizontal adjustment for advance.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.OpenType.Adjustment.YAdvance">
+            <summary>Gets a vertical adjustment for advance.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.OpenType.FeatureRecord">
+            <summary>
+            The relationship of scripts, language systems, features, and lookups for substitution and positioning tables.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.OpenType.FeatureRecord.#ctor(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.OpenType.FeatureRecord"/> class.
+            </summary>
+            <param name="scriptTag">The script identification tag.</param>
+            <param name="languageSystemTag">The language system tag.</param>
+            <param name="featureTag">The feature system tag.</param>
+            <param name="featureIndex">The feature index.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.OpenType.FeatureRecord.Id">
+            <summary>Gets an identification.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.OpenType.FeatureRecord.ScriptTag">
+            <summary>Gets the script identification tag.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.OpenType.FeatureRecord.LanguageSystemTag">
+            <summary>Gets the language system tag.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.OpenType.FeatureRecord.FeatureTag">
+            <summary>Gets the feature system tag.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.OpenType.FeatureRecord.FeatureIndex">
+            <summary>Gets the feature index.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.OpenType.PairAdjustment">
+            <summary>
+            The GPOS pair adjustment.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.OpenType.PairAdjustment.#ctor(WaterTrans.GlyphLoader.OpenType.Adjustment,WaterTrans.GlyphLoader.OpenType.Adjustment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.OpenType.PairAdjustment"/> class.
+            </summary>
+            <param name="first">The value of a first glyph adjustment for placement.</param>
+            <param name="second">The value of a second glyph adjustment for placement.</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.OpenType.PairAdjustment.First">
+            <summary>Gets a first glyph adjustment for placement.</summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.OpenType.PairAdjustment.Second">
+            <summary>Gets a second glyph adjustment for placement.</summary>
+        </member>
+        <member name="T:WaterTrans.GlyphLoader.Typeface">
+            <summary>
+            Main class for GlyphLoader.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Typeface"/> class.
+            </summary>
+            <param name="stream">The font file stream.</param>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.#ctor(System.IO.Stream,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WaterTrans.GlyphLoader.Typeface"/> class.
+            </summary>
+            <param name="stream">The font file stream.</param>
+            <param name="index">TrueType collections or OpenType collections index(Zero-based numbering).</param>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.Height">
+            <summary>
+            Gets height of character cell relative to em size.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.Baseline">
+            <summary>
+            Gets distance from cell top to English baseline relative to em size.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.CapsHeight">
+            <summary>
+            Gets distance from baseline to top of English capital relative to em size.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.XHeight">
+            <summary>
+            Gets western x-height relative to em size.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.StrikethroughPosition">
+            <summary>
+            Gets a value that indicates the distance from the baseline to the strikethrough for the typeface.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.StrikethroughThickness">
+            <summary>
+            Gets a value that indicates the thickness of the strikethrough relative to the font em size.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.UnderlinePosition">
+            <summary>
+            Gets the position of the underline in the Typeface.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.UnderlineThickness">
+            <summary>
+            Gets the thickness of the underline relative to em size.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.AdvanceWidths">
+            <summary>
+            Gets the advance widths for the glyphs represented by the Typeface object.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.AdvanceHeights">
+            <summary>
+            Gets the advance heights for the glyphs represented by the Typeface object.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.LeftSideBearings">
+            <summary>
+            Gets the distance from the leading end of the advance vector to the left edge of the black box for the glyphs represented by the Typeface object.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.RightSideBearings">
+            <summary>
+            Gets the distance from the right edge of the black box to the right end of the advance vector for the glyphs represented by the Typeface object.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.TopSideBearings">
+            <summary>
+            Gets the distance from the top end of the vertical advance vector to the top edge of the black box for the glyphs represented by the Typeface object.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.BottomSideBearings">
+            <summary>
+            Gets the distance from bottom edge of the black box to the bottom end of the advance vector for the glyphs represented by the Typeface object.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.DistancesFromHorizontalBaselineToBlackBoxBottom">
+            <summary>
+            Gets the offset value from the horizontal Western baseline to the bottom of the glyph black box for the glyphs represented by the Typeface object.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.GlyphCount">
+            <summary>
+            Gets the number of glyphs for the Typeface object.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.CharacterToGlyphMap">
+            <summary>
+            Gets the nominal mapping of a Unicode code point to a glyph index as defined by the font 'CMAP' table.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.GSUBFeatures">
+            <summary>
+            Gets the GSUB feature list.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.GPOSFeatures">
+            <summary>
+            Gets the GPOS feature list.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.SfntVersionMajor">
+            <summary>
+            Gets sfnt Major Version.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.SfntVersionMinor">
+            <summary>
+            Gets sfnt Minor Version.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.NumTables">
+            <summary>
+            Gets number of tables.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.SearchRange">
+            <summary>
+            Gets (Maximum power of 2 &lt;= numTables) x 16.
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.EntrySelector">
+            <summary>
+            Gets log2(maximum power of 2 &gt;= numTables).
+            </summary>
+        </member>
+        <member name="P:WaterTrans.GlyphLoader.Typeface.RangeShift">
+            <summary>
+            Gets numTables x 16-searchRange.
+            </summary>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.GetSingleSubstitutionMap(System.String)">
+            <summary>
+            Gets the single substitution map by the font 'GSUB' table.
+            </summary>
+            <param name="id">The feture record id by GSUBFeatures method result.</param>
+            <returns>The single substitution map.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.GetSingleSubstitutionMap(System.String,System.String,System.String)">
+            <summary>
+            Gets the single substitution map by the font 'GSUB' table.
+            </summary>
+            <param name="scriptTag">The OpenType script identification tag.</param>
+            <param name="langSysTag">The OpenType language system identification tag.</param>
+            <param name="featureTag">The OpenType feature identification tag.</param>
+            <returns>The single substitution map.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.GetLigatureSubstitutionMap(System.String)">
+            <summary>
+            Gets the ligature substitution map by the font 'GSUB' table.
+            </summary>
+            <param name="id">The feture record id by GSUBFeatures method result.</param>
+            <returns>The ligature substitution map.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.GetLigatureSubstitutionMap(System.String,System.String,System.String)">
+            <summary>
+            Gets the ligature substitution map by the font 'GSUB' table.
+            </summary>
+            <param name="scriptTag">The OpenType script identification tag.</param>
+            <param name="langSysTag">The OpenType language system identification tag.</param>
+            <param name="featureTag">The OpenType feature identification tag.</param>
+            <returns>The ligature substitution map.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.GetMultipleSubstitutionMap(System.String)">
+            <summary>
+            Gets the multiple substitution map by the font 'GSUB' table.
+            </summary>
+            <param name="id">The feture record id by GSUBFeatures method result.</param>
+            <returns>The multiple substitution map.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.GetMultipleSubstitutionMap(System.String,System.String,System.String)">
+            <summary>
+            Gets the multiple substitution map by the font 'GSUB' table.
+            </summary>
+            <param name="scriptTag">The OpenType script identification tag.</param>
+            <param name="langSysTag">The OpenType language system identification tag.</param>
+            <param name="featureTag">The OpenType feature identification tag.</param>
+            <returns>The multiple substitution map.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.GetAlternateSubstitutionMap(System.String)">
+            <summary>
+            Gets the alternate substitution map by the font 'GSUB' table.
+            </summary>
+            <param name="id">The feture record id by GSUBFeatures method result.</param>
+            <returns>The alternate substitution map.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.GetAlternateSubstitutionMap(System.String,System.String,System.String)">
+            <summary>
+            Gets the alternate substitution map by the font 'GSUB' table.
+            </summary>
+            <param name="scriptTag">The OpenType script identification tag.</param>
+            <param name="langSysTag">The OpenType language system identification tag.</param>
+            <param name="featureTag">The OpenType feature identification tag.</param>
+            <returns>The alternate substitution map.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.GetSingleAdjustmentMap(System.String)">
+            <summary>
+            Gets the single adjustment map by the font 'GPOS' table.
+            </summary>
+            <param name="id">The feture record id by GPOSFeatures method result.</param>
+            <returns>The single adjustment map.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.GetSingleAdjustmentMap(System.String,System.String,System.String)">
+            <summary>
+            Gets the single adjustment map by the font 'GPOS' table.
+            </summary>
+            <param name="scriptTag">The OpenType script identification tag.</param>
+            <param name="langSysTag">The OpenType language system identification tag.</param>
+            <param name="featureTag">The OpenType feature identification tag.</param>
+            <returns>The single adjustment map.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.GetPairAdjustmentMap(System.String)">
+            <summary>
+            Gets the pair adjustment map by the font 'GPOS' table.
+            </summary>
+            <param name="id">The feture record id by GPOSFeatures method result.</param>
+            <returns>The pair adjustment map.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.GetPairAdjustmentMap(System.String,System.String,System.String)">
+            <summary>
+            Gets the pair adjustment map by the font 'GPOS' table.
+            </summary>
+            <param name="scriptTag">The OpenType script identification tag.</param>
+            <param name="langSysTag">The OpenType language system identification tag.</param>
+            <param name="featureTag">The OpenType feature identification tag.</param>
+            <returns>The pair adjustment map.</returns>
+        </member>
+        <member name="M:WaterTrans.GlyphLoader.Typeface.GetGlyphOutline(System.UInt16,System.Double)">
+            <summary>
+            Returns a Geometry value describing the path for a single glyph in the font.
+            </summary>
+            <param name="glyphIndex">The index of the glyph to get the outline for.</param>
+            <param name="renderingEmSize">The font size in drawing surface units.</param>
+            <returns>A <see cref="T:WaterTrans.GlyphLoader.Geometry.PathGeometry"/> value that represents the path of the glyph.</returns>
+        </member>
+    </members>
+</doc>
